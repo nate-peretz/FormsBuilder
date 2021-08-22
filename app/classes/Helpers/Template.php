@@ -10,10 +10,6 @@
             include $_SERVER['DOCUMENT_ROOT'] .'/app/views/template/footer.php';
         }
 
-        public static function Sidebar() {
-            include $_SERVER['DOCUMENT_ROOT'] .'/app/views/template/sidebar.php';
-        }
-
         public static function getComponent( $name, $data = []) {
             $template = file_get_contents( $_SERVER['DOCUMENT_ROOT'] ."/app/views/template/components/$name.html");
 
@@ -37,28 +33,6 @@
 
         public static function getTemplateHTML( $name) {
             return file_get_contents( $_SERVER['DOCUMENT_ROOT'] ."/app/views/template/components/$name.html");
-        }
-
-        public static function addPagination( $total_pages, $current_page, $url) {
-            $pagination_html = '';
-
-            if( $total_pages) {
-                $pagination_html .= '<ul class="pagination">';
-
-                for( $i = 0; $i < $total_pages; $i++) {
-                    // URL
-                    $new_page_url = preg_replace('/&page(.*)/', '&page='. ( $i +1), $url);
-                    if( ! strpos( $new_page_url, '&page=') !== false) $new_page_url .= '&page='. ( $i +1);
-
-                    // Class
-                    $current_class = ( $current_page == ( $i +1)) ? 'current' : '';
-                    $pagination_html .= '<li><a class="btn m-2 '. $current_class .'" href="'. $new_page_url .'">'. ( $i +1) .'</a></li>';
-                }
-
-                $pagination_html .= '</ul>';
-            }
-
-            echo $pagination_html;
         }
 
         /**
@@ -87,20 +61,6 @@
                 $output .= $data['value'];
             $output .= '</p>';
 
-            return $output;
-        }
-
-        public static function renderShortcodes( $shortcodes) {
-            if( ! $shortcodes || empty( $shortcodes)) return '';
-            $output = '<div class="col-md-12">';
-                $output .= '<div class="shortcodes">';
-
-                foreach( $shortcodes as $shortcode) {
-                    $output .= '<a href="#" class="add-shortcode" data-toggle="tooltip" title="'. _('Copy shortcode') .'">'. $shortcode .'</a>';
-                }
-
-                $output .= '</div>';
-            $output .= '</div>';
             return $output;
         }
 
