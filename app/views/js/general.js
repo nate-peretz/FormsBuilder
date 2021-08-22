@@ -12,7 +12,7 @@ jQuery( function($) {
         /**
          * Collect static fields
          */
-         $(this).closest('form').find('input:not([type="submit"]), textarea, select, div[type="quill-editor"]').each( function() {
+         $(this).closest('form').find('input:not([type="submit"]), textarea, select').each( function() {
             var value = ( $(this).attr('type') == 'checkbox') ? ( $(this).is(':checked') ? 'on' : 'off') : this.value;
             data[ this.id] = value;
         });
