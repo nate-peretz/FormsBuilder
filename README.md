@@ -12,7 +12,7 @@ The original code includes dynamic fields, form validation, data/url encryption 
 
 // Form
 $form = new Component();
-$form->addForm('save-form', '/app/ajax/save_form.php', 'col-md-12', $redirect = '/index.php')
+$form->addForm( $id = 'save-form', $submit = '/app/ajax/save_form.php', $classes = 'col-md-12', $redirect = '/index.php')
     // Components
     ->addLabel( _('Title'))
     ->addInput( ['type' => 'text', 'id' => 'title', 'required' => true, 'class' => 'form-control title', 'placeholder' => _('Title..'), 'value' => 'Form Title')
