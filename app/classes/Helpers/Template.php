@@ -1,10 +1,6 @@
 <?php
     namespace Helpers;
 
-    use \Controllers\QuestionSettingsController;
-    use \Controllers\QuestionsController;
-    use \Controllers\AnswersController;
-
     class Template {
         public static function Header() {
             include $_SERVER['DOCUMENT_ROOT'] .'/app/views/template/header.php';
@@ -120,16 +116,6 @@
             return $output;
         }
 
-        public static function renderQuillEditor( $data) {
-            if( ! isset( $data['value'])) $data['value'] = '';
-
-            $output = '<div class="form-group quill-editor">';
-                $output .= '<div '. self::renderAttributes( $data, ['value']) .'>'. html_entity_decode( $data['value']) .'</div>';
-            $output .= '</div>';
-
-            return $output;
-        }
-
         public static function renderButton( $data) {
             if( ! isset( $data['value'])) $data['value'] = '';
             if( $data['type'] == 'button') unset( $data['type']);
@@ -203,19 +189,11 @@
             if( $cols > 6) throw new \Exception('field_group supports only 6 fields');
 
             // Title
-            $settings_count = '';
-            if( in_array('settings', $data['buttons'])) $settings_count = self::countFieldGroupSettings( $data['attributes']);
-            $output .= "<div class=\"card-header\"><h3>$title &nbsp; <small class=\"text-danger\">$settings_count</small></h3>$buttons_html</div>";
+            $output .= "<div class=\"card-header\"><h3>$title</h3>$buttons_html</div>";
 
             // Render fields
             $output .= '<div class="card-body" style="display: none;">';
-                $output .= self::fieldGroupRenderFeieldsAndAnswers( $data['fields'], $cols);
-
-                // Add settings sections when "settings" button exists
-                if( in_array('settings', $data['buttons'])) {
-                    $output .= self::fieldGroupRenderSettings( $data['attributes']);
-                }
-
+                $output .= self::fieldGroupRenderFeields( $data['fields'], $cols);
             $output .= '</div>';
 
             // Close
@@ -279,17 +257,6 @@
             return $output;
         }
 
-        public static function showSuccess( $status) {
-            if( isset( $status['success'])) $status = $status['success'];
-            $status = intval( $status);
-
-            if( $status == 1) {
-                echo '<div class="alert alert-success" role="alert">'. _('The information was saved successfully') .'</div>';
-            } else if( isset( $_GET['success'])) {
-                echo '<div class="alert alert-danger" role="alert">'. _('An error occured. Please try again') .'</div>';
-            }
-        }
-
         /**
          * Private functions
          */
@@ -304,18 +271,7 @@
             return $output;
         }
 
-        private static function renderAnswer( $data) {
-            $output = '<div class="form-group answer col-md-3">';
-                $output .= self::renderFieldGroupButtons( ['delete']);
-                $output .= '<input class="form-control bg-yellow answer" ';
-                    $output .= self::renderAttributes( $data);
-                $output .= '>';
-            $output .= '</div>';
-
-            return $output;
-        }
-
-        private static function fieldGroupRenderFeieldsAndAnswers( $field_data, $cols) {
+        private static function fieldGroupRenderFeields( $field_data, $cols) {
             $output = '<div class="row">';
                 foreach( $field_data as $field) {
                     $col_class = 'col-md-' . ( 12 / $cols);
@@ -345,64 +301,6 @@
                 }
             $output .= '</div>';
 
-            // Get answers for "select" type fields
-            if( isset( $field['options']) && is_array( $field['options'])) {
-                foreach( $field['options'] as $option) {
-                    if( isset( $option['value']) && $option['value'] == 'select' && isset( $option['selected']) && $option['selected'] == 1) {
-                        if( isset( $data['attributes']['data-question-id'])) {
-                            $question_id = intval( $data['attributes']['data-question-id']);
-
-                            // Continue only if question exists
-                            if( $question_id > 0 ) {
-                                $answers = AnswersController::getRows( ['question_id' => $question_id]);
-
-                                if( $answers) {
-                                    foreach( $answers as $answer) {
-                                        $output .= self::renderAnswer( array(
-                                            'data-question-id' => $answer['question_id'],
-                                            'data-answer-id' => $answer['id'],
-                                            'data-delete' => '0',
-                                            'value' => $answer['answer']
-                                        ));
-                                    }
-
-                                    $output .= self::renderButton( ['type' => 'button', 'id' => 'add_answer', 'class' => 'form-control', 'value' => 'הוספת תשובה']);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
             return $output;
-        }
-
-        private static function fieldGroupRenderSettings( $data) {
-            // Buttons
-            $output = '<a class="q_settings" href="#"><i class="fa fa-cog text-purple" aria-hidden="true"></i> הגדרות <small>תנאים להצגת שאלה זו</small></a>';
-
-            // Question settings
-            $question_settings = QuestionSettingsController::getRows( ['parent_question_id' => $data['data-question-id']]);
-            $output .= '<div class="question-settings" style="display: none;">';
-                $output .= '<ul>';
-                    foreach( $question_settings as $q_setting) {
-                        $id = $q_setting['id'];
-                        $question = QuestionsController::getRowById( $q_setting['question_id'])['question'];
-                        $answer = AnswersController::getRowById( $q_setting['answer_id'])['answer'];
-
-                        if( $question && $answer) {
-                            $output .= "<li data-question-setting-id=\"$id\"><i class=\"fa fa-trash-o text-danger\" aria-hidden=\"true\" data-toggle=\"tooltip\" title=\"מחיקת תנאי\"></i><span title=\"$question\">$question</span><span class=\"badge bg-primary text-white\">$answer</span></li>";
-                        }
-                    }
-                $output .= '</ul>';
-                $output .= '<a class="btn add-setting" href="#">הוספת התניה</a>';
-            $output .= '</div>';
-
-            return $output;
-        }
-
-        private static function countFieldGroupSettings( $data) {
-            $question_settings = count( QuestionSettingsController::getRows( ['parent_question_id' => $data['data-question-id']]));
-            return ( $question_settings > 0) ? "($question_settings הגדרות)" : '';
         }
     }
