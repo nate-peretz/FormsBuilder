@@ -1,0 +1,10 @@
+*.pem
+*.pub
+vendor/
+node_modules/
+.sass-cache/
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/plugins/
+messages.po

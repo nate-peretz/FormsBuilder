@@ -1,0 +1,24 @@
+$grey: #CECECE;
+$lightgrey: #ededed;
+$darkgrey: #9e9e9e;
+$yellow: #fafad8;
+$dark: #12003C;
+$purple: #1E035F;
+$success: #28a745;
+
+.yellow {
+    color: $yellow;
+    * { color: $yellow; }
+}
+.dark {
+    color: $dark;
+    * { color: $dark; }
+}
+.purple {
+    color: $purple;
+    * { color: $purple; }
+}
+
+.bg-yellow { background-color: $yellow; }
+.bg-purple { background-color: $purple; }
+.bg-darkgrey { background-color: darkgrey; }

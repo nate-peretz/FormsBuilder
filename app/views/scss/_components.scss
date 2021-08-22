@@ -1,0 +1,240 @@
+.field-group[data-title="1"] {
+    .card { border-color: transparent !important; }
+    .card-header {
+        background: $purple;
+        h3, i { color: #fff !important; }
+    }
+    .card-body { background: #f7f7f7; }
+}
+
+.field-group[data-upload="1"] {
+    .card { border-color: transparent !important; }
+    .card-header {
+        background: $success;
+        h3, i {
+            color: #fff !important;
+            small.text-danger { color: $purple !important; }
+        }
+    }
+    .card-body {
+        background: #f7f7f7;
+        border: 2px dashed $grey;
+        border-top: none !important;
+    }
+}
+
+.field-group-buttons {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-28%);
+    left: 60px;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+            width: 36px;
+            line-height: 32px;
+            text-align: center;
+            list-style: none;
+            border-radius: 6px;
+            -webkit-border-radius: 6px;
+            transition: all .2s;
+            -webkit-transition: all .2s;
+
+            &.wide {
+                width: auto;
+                padding: 0 10px;
+            }
+
+            &:hover { background: $grey; }
+        }
+    }
+}
+
+.card-header {
+    position: relative;
+    padding: .6rem .75rem !important;
+
+    h3 {
+        margin: 0;
+        font-size: 18px !important;
+    }
+
+    &:after {
+        content: '\f104';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc( 1.25rem / 2);
+        font-family: 'FontAwesome';
+        color: $purple;
+    }
+
+    &:hover {
+        .field-group-buttons {
+            opacity: 1;
+            top: 14px;
+        }
+    }
+}
+
+.card-body { padding: .75rem !important; }
+
+.form-group { margin-bottom: 8px !important; }
+.form-control:not( textarea):not( button) {
+    height: 2.4em !important;
+    padding: 0 .35rem !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+}
+
+.card-header { cursor: pointer; }
+
+.col-md-12 .row.field-group:not( .ui-sortable-handle) {
+    margin-bottom: .5rem !important;
+}
+.col-md-12 .ui-sortable-handle {
+    margin-bottom: .5rem !important;
+}
+
+.field-group {
+    &.error {
+        .card-header { border: 1px solid red; }
+    }
+
+    .fa-repeat, .fa-cloud-upload { margin-left: 7px; }
+}
+
+.save-btn {
+    margin: 15px 0;
+
+    > input, > button {
+        color: #fff !important;
+        background: $purple !important;
+    }
+}
+
+/* On/Off Toggle */
+.toggle {
+    input[type="checkbox"] {
+        position: relative;
+        top: 3px;
+        left: 10px;
+        border: none;
+        appearance: none;
+        -webkit-appearance: none;
+
+        &:before {
+            content: '';
+            display: block;
+            position: relative;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            right: -20px;
+            padding: 2px 8px;
+            background: #fff;
+            border-radius: 100%;
+            -webkit-border-radius: 100%;
+            overflow: hidden;
+            z-index: 99;
+            transition: all .2s;
+            -webkit-transition: all .2s;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &:before { background-color: red; }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 22px;
+            top: 0;
+            background: $grey;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+
+        &:checked {
+            &:before {
+                left: 0;
+                background-color: green !important;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.ui-sortable {
+    padding: 20px 10px;
+
+    &.hover {
+        border: 2px dashed $grey;
+    }
+}
+
+/* Tooltip */
+.ui-tooltip {
+    font-size: 16px !important;
+    padding: 4px 10px !important;
+    color: #fff !important;
+    background: $purple !important;
+    border-radius: 6px !important;
+    -webkit-border-radius: 6px !important;
+}
+
+ul.pagination {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+        display: inline-block;
+        list-style: none;
+
+        a {
+            color: #000 !important;
+            background: $lightgrey !important;
+
+            &.current {
+                color: #fff !important;
+                background: $purple !important;
+            }
+
+            &:hover { color: #fff !important; }
+        }
+    }
+}
+
+/* DataTables */
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 6px !important;
+    font-size: 16px;
+}
+
+option {
+    height: 24px;
+
+    &:disabled {
+        font-weight: bold;
+        color: $purple;
+        background: $lightgrey;
+    }
+}

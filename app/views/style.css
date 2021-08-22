@@ -1,0 +1,620 @@
+/**
+ * General
+ */
+@import url(//fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+/* line 9, scss/_colors.scss */
+.yellow {
+  color: #fafad8;
+}
+/* line 11, scss/_colors.scss */
+.yellow * {
+  color: #fafad8;
+}
+
+/* line 13, scss/_colors.scss */
+.dark {
+  color: #12003C;
+}
+/* line 15, scss/_colors.scss */
+.dark * {
+  color: #12003C;
+}
+
+/* line 17, scss/_colors.scss */
+.purple {
+  color: #1E035F;
+}
+/* line 19, scss/_colors.scss */
+.purple * {
+  color: #1E035F;
+}
+
+/* line 22, scss/_colors.scss */
+.bg-yellow {
+  background-color: #fafad8;
+}
+
+/* line 23, scss/_colors.scss */
+.bg-purple {
+  background-color: #1E035F;
+}
+
+/* line 24, scss/_colors.scss */
+.bg-darkgrey {
+  background-color: darkgrey;
+}
+
+/* line 2, scss/_components.scss */
+.field-group[data-title="1"] .card {
+  border-color: transparent !important;
+}
+/* line 3, scss/_components.scss */
+.field-group[data-title="1"] .card-header {
+  background: #1E035F;
+}
+/* line 5, scss/_components.scss */
+.field-group[data-title="1"] .card-header h3, .field-group[data-title="1"] .card-header i {
+  color: #fff !important;
+}
+/* line 7, scss/_components.scss */
+.field-group[data-title="1"] .card-body {
+  background: #f7f7f7;
+}
+
+/* line 11, scss/_components.scss */
+.field-group[data-upload="1"] .card {
+  border-color: transparent !important;
+}
+/* line 12, scss/_components.scss */
+.field-group[data-upload="1"] .card-header {
+  background: #28a745;
+}
+/* line 14, scss/_components.scss */
+.field-group[data-upload="1"] .card-header h3, .field-group[data-upload="1"] .card-header i {
+  color: #fff !important;
+}
+/* line 16, scss/_components.scss */
+.field-group[data-upload="1"] .card-header h3 small.text-danger, .field-group[data-upload="1"] .card-header i small.text-danger {
+  color: #1E035F !important;
+}
+/* line 19, scss/_components.scss */
+.field-group[data-upload="1"] .card-body {
+  background: #f7f7f7;
+  border: 2px dashed #CECECE;
+  border-top: none !important;
+}
+
+/* line 26, scss/_components.scss */
+.field-group-buttons {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-28%);
+  left: 60px;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+}
+/* line 35, scss/_components.scss */
+.field-group-buttons ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* line 40, scss/_components.scss */
+.field-group-buttons ul li {
+  display: inline-block;
+  width: 36px;
+  line-height: 32px;
+  text-align: center;
+  list-style: none;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+}
+/* line 51, scss/_components.scss */
+.field-group-buttons ul li.wide {
+  width: auto;
+  padding: 0 10px;
+}
+/* line 56, scss/_components.scss */
+.field-group-buttons ul li:hover {
+  background: #CECECE;
+}
+
+/* line 61, scss/_components.scss */
+.card-header {
+  position: relative;
+  padding: .6rem .75rem !important;
+}
+/* line 65, scss/_components.scss */
+.card-header h3 {
+  margin: 0;
+  font-size: 18px !important;
+}
+/* line 70, scss/_components.scss */
+.card-header:after {
+  content: '\f104';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc( 1.25rem / 2);
+  font-family: 'FontAwesome';
+  color: #1E035F;
+}
+/* line 81, scss/_components.scss */
+.card-header:hover .field-group-buttons {
+  opacity: 1;
+  top: 14px;
+}
+
+/* line 88, scss/_components.scss */
+.card-body {
+  padding: .75rem !important;
+}
+
+/* line 90, scss/_components.scss */
+.form-group {
+  margin-bottom: 8px !important;
+}
+
+/* line 91, scss/_components.scss */
+.form-control:not(textarea):not(button) {
+  height: 2.4em !important;
+  padding: 0 .35rem !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+}
+
+/* line 98, scss/_components.scss */
+.card-header {
+  cursor: pointer;
+}
+
+/* line 100, scss/_components.scss */
+.col-md-12 .row.field-group:not(.ui-sortable-handle) {
+  margin-bottom: .5rem !important;
+}
+
+/* line 103, scss/_components.scss */
+.col-md-12 .ui-sortable-handle {
+  margin-bottom: .5rem !important;
+}
+
+/* line 109, scss/_components.scss */
+.field-group.error .card-header {
+  border: 1px solid red;
+}
+/* line 112, scss/_components.scss */
+.field-group .fa-repeat, .field-group .fa-cloud-upload {
+  margin-left: 7px;
+}
+
+/* line 115, scss/_components.scss */
+.save-btn {
+  margin: 15px 0;
+}
+/* line 118, scss/_components.scss */
+.save-btn > input, .save-btn > button {
+  color: #fff !important;
+  background: #1E035F !important;
+}
+
+/* On/Off Toggle */
+/* line 126, scss/_components.scss */
+.toggle input[type="checkbox"] {
+  position: relative;
+  top: 3px;
+  left: 10px;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+/* line 134, scss/_components.scss */
+.toggle input[type="checkbox"]:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  right: -20px;
+  padding: 2px 8px;
+  background: #fff;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  overflow: hidden;
+  z-index: 99;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+}
+/* line 151, scss/_components.scss */
+.toggle input[type="checkbox"]:before:hover {
+  cursor: pointer;
+}
+/* line 156, scss/_components.scss */
+.toggle input[type="checkbox"]:before {
+  background-color: red;
+}
+/* line 158, scss/_components.scss */
+.toggle input[type="checkbox"]:after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 22px;
+  top: 0;
+  background: #CECECE;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+/* line 170, scss/_components.scss */
+.toggle input[type="checkbox"]:checked:before {
+  left: 0;
+  background-color: green !important;
+}
+/* line 176, scss/_components.scss */
+.toggle input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+/* line 182, scss/_components.scss */
+.ui-sortable {
+  padding: 20px 10px;
+}
+/* line 185, scss/_components.scss */
+.ui-sortable.hover {
+  border: 2px dashed #CECECE;
+}
+
+/* Tooltip */
+/* line 191, scss/_components.scss */
+.ui-tooltip {
+  font-size: 16px !important;
+  padding: 4px 10px !important;
+  color: #fff !important;
+  background: #1E035F !important;
+  border-radius: 6px !important;
+  -webkit-border-radius: 6px !important;
+}
+
+/* line 200, scss/_components.scss */
+ul.pagination {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  list-style: none;
+}
+/* line 208, scss/_components.scss */
+ul.pagination li {
+  display: inline-block;
+  list-style: none;
+}
+/* line 212, scss/_components.scss */
+ul.pagination li a {
+  color: #000 !important;
+  background: #ededed !important;
+}
+/* line 216, scss/_components.scss */
+ul.pagination li a.current {
+  color: #fff !important;
+  background: #1E035F !important;
+}
+/* line 221, scss/_components.scss */
+ul.pagination li a:hover {
+  color: #fff !important;
+}
+
+/* DataTables */
+/* line 227, scss/_components.scss */
+table.dataTable tbody th, table.dataTable tbody td {
+  padding: 6px !important;
+  font-size: 16px;
+}
+
+/* line 232, scss/_components.scss */
+option {
+  height: 24px;
+}
+/* line 235, scss/_components.scss */
+option:disabled {
+  font-weight: bold;
+  color: #1E035F;
+  background: #ededed;
+}
+
+/* line 3, scss/_general.scss */
+pre {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 14px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  text-align: left;
+  direction: ltr;
+  background: #ededed;
+  overflow: auto;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 18, scss/_general.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans Hebrew', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  direction: ltr;
+}
+
+/* line 29, scss/_general.scss */
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* line 34, scss/_general.scss */
+h1 {
+  font-size: 36px;
+}
+
+/* line 35, scss/_general.scss */
+h3 {
+  color: #1E035F;
+}
+
+/* line 37, scss/_general.scss */
+.col-md-12 {
+  padding: 0 !important;
+}
+/* line 41, scss/_general.scss */
+.col-md-12 p a {
+  text-decoration: underline;
+  color: #1E035F;
+}
+
+/* line 48, scss/_general.scss */
+select, input, textarea {
+  background: #fff;
+  border: 1px solid #CECECE;
+}
+/* line 52, scss/_general.scss */
+select.error, input.error, textarea.error {
+  border-color: red;
+}
+
+/* line 55, scss/_general.scss */
+input, select, img {
+  max-width: 100%;
+}
+
+/* line 57, scss/_general.scss */
+a, a:active, a:visited {
+  color: #1E035F;
+}
+/* line 59, scss/_general.scss */
+a:hover, a:active:hover, a:visited:hover {
+  color: #1E035F;
+}
+
+/* line 64, scss/_general.scss */
+.nav-tabs .nav-link.active {
+  color: #1E035F;
+}
+
+/* line 68, scss/_general.scss */
+h3 {
+  font-size: 26px;
+}
+
+/* line 70, scss/_general.scss */
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 75, scss/_general.scss */
+.btn {
+  padding: 4px 10px;
+  margin-top: 30px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff !important;
+  cursor: pointer;
+}
+/* line 81, scss/_general.scss */
+.btn:not(.btn-danger):not(.btn-success) {
+  background: #12003C;
+}
+/* line 85, scss/_general.scss */
+.btn:hover:not(.btn-danger):not(.btn-success) {
+  background: #1E035F !important;
+}
+
+/* line 91, scss/_general.scss */
+header p small {
+  font-style: italic;
+  color: grey;
+}
+
+/* line 97, scss/_general.scss */
+header h1 .btn {
+  float: left;
+  margin-top: 5px;
+}
+/* line 100, scss/_general.scss */
+header h1 .btn i {
+  margin: 2px 0 0 4px;
+}
+
+/* line 104, scss/_general.scss */
+.content {
+  padding: 30px 50px;
+  border-top: 8px solid transparent;
+}
+/* line 108, scss/_general.scss */
+.content .pretty-title {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-top: 60px;
+  text-align: center;
+}
+/* line 115, scss/_general.scss */
+.content .pretty-title > span {
+  position: relative;
+  padding: 0 50px;
+  font-size: 22px;
+  color: #12003C;
+  background: #fff;
+  z-index: 9;
+}
+/* line 124, scss/_general.scss */
+.content .pretty-title:after, .content .pretty-title:before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  background: #1E035F;
+}
+/* line 133, scss/_general.scss */
+.content .pretty-title:before {
+  right: 0;
+}
+/* line 134, scss/_general.scss */
+.content .pretty-title:after {
+  left: 0;
+}
+/* line 137, scss/_general.scss */
+.content .widgets {
+  padding: 0;
+  margin: 30px 0 0;
+}
+/* line 140, scss/_general.scss */
+.content .widgets * {
+  text-align: center;
+}
+/* line 142, scss/_general.scss */
+.content .widgets li {
+  width: 30%;
+  height: 220px;
+  padding: 50px;
+  list-style: none;
+  background: #12003C;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+/* line 150, scss/_general.scss */
+.content .widgets li * {
+  color: #fafad8;
+}
+/* line 152, scss/_general.scss */
+.content .widgets li.scaled {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+/* line 157, scss/_general.scss */
+.content .widgets li .big-number {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* line 165, scss/_general.scss */
+.info-box {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  position: relative;
+  width: 100%;
+  min-height: 80px;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+}
+/* line 179, scss/_general.scss */
+.info-box .info-box-content {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  padding: 0 10px;
+  line-height: 1.8;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+}
+/* line 196, scss/_general.scss */
+.info-box .info-box-icon {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  width: 70px;
+  font-size: 1.875rem;
+  border-radius: .25rem;
+  text-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+/* line 212, scss/_general.scss */
+.info-box .info-box-text {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 219, scss/_general.scss */
+.info-box .info-box-number {
+  display: block;
+  margin-top: .25rem;
+  font-weight: 700;
+}
+
+/* line 226, scss/_general.scss */
+.item-category {
+  position: relative;
+  padding: 10px 14px;
+  height: 140px;
+  border: 1px solid #ededed;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+}
+/* line 236, scss/_general.scss */
+.item-category h3 {
+  color: #000;
+}
+/* line 238, scss/_general.scss */
+.item-category .category-icon {
+  position: absolute;
+  left: 14px;
+}
+/* line 242, scss/_general.scss */
+.item-category .category-icon i {
+  font-size: 64px;
+  color: #ededed;
+}
+/* line 248, scss/_general.scss */
+.item-category:hover {
+  transform: scale(1.008);
+  -webkit-box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.22);
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.22);
+}
